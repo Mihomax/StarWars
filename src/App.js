@@ -20,7 +20,7 @@ this.postCommand = this.postCommand.bind(this);
 
 	postCommand = (command) => {
 		
-		axios.post('http://127.0.0.1/php_test/api.php', command, {
+		axios.post('http://127.0.0.1/api.php', command, {
 			headers : {
 					'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
 			}
