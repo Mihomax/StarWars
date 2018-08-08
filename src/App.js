@@ -12,10 +12,10 @@ this.state = {
 	people:'people',
 	planets:'planets',
 	starships:'starships',
-	search:null
+	search:''
 }
-
-this.postCommand = this.postCommand.bind(this)
+this.handleChange = this.handleChange.bind(this);
+this.postCommand = this.postCommand.bind(this);
 	};
 
 	postCommand = (command) => {
@@ -35,7 +35,41 @@ this.postCommand = this.postCommand.bind(this)
 
 	}
 
+	handleChange = (event) => {
+this.setState({search:event.target.value});
+
+	}
+
+	
+
+
+    render() {
+		const style = {color:"white"};
+		
+		let result = this.state.data.map((each,index) => <li key={index} style={style}> {each.name}</li>
+		);
+		
+			
+        return (
+              <div>
+				  <ul>
+				{result}
+				  </ul>
+				  <button onClick={(e) => this.postCommand(this.state.people)}>Click to see SW guys!</button>
+				  <button onClick={(e) => this.postCommand(this.state.planets)}>Click to see all the planets</button>
+				  <button onClick={(e) => this.postCommand(this.state.starships)}>Click to see starships</button>
+				  <input onChange={this.handleChange} value={this.state.search} />
+				  <button onClick={(e) => this.postCommand("people/?search="+this.state.search)}>Search for persons</button>
+
+              </div>      
+        )
+}
+}
   
+
+
+
+export default App;
 
 // componentWillMount () {
 		
@@ -53,30 +87,6 @@ this.postCommand = this.postCommand.bind(this)
 // 		})
 
 // 	}
-    render() {
-		
-		let result = this.state.data.map((each,index) => <li key={index}> {each.name}</li>
-		);
-		
-			
-        return (
-              <div>
-				  <ul>
-				{result}
-				  </ul>
-				  <button onClick={(e) => this.postCommand(this.state.people)}>Click to see SW guys!</button>
-				  <button onClick={(e) => this.postCommand(this.state.planets)}>Click to see all the planets</button>
-				  <button onClick={(e) => this.postCommand(this.state.starships)}>Click to see starships</button>
-              </div>      
-        )
-}
-}
-  
-
-
-
-export default App;
-
 
 // componentWillMount () {
   //   fetch('http://127.0.0.1/php_test/api.php')
