@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import  "./css/mycss.css";
 import axios from 'axios';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
+import Spinner from './components/Spinner/Spinner';
+
 //import Content from './components/Content/Content';
 
 
@@ -20,7 +22,8 @@ this.state = {
 	planets:'planets',
 	starships:'starships',
 	search:'',
-	current:'people'
+	current:'people',
+	loading: false
 }
 this.handleChange = this.handleChange.bind(this);
 this.dataChanger = this.dataChanger.bind(this);
@@ -74,6 +77,7 @@ this.searchQuery = this.searchQuery.bind(this);
 		this.setState({data:command});
 	}
 	searchQuery = (command) => {
+		this.setState({loading:true});
 		axios.post(this.state.server, command, {
 			headers : {
 					'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -82,6 +86,7 @@ this.searchQuery = this.searchQuery.bind(this);
 		.then((res) => {
 			//console.log(res.data.results);
 			this.setState({data:res.data.results});
+			this.setState({loading:false});
 			
 		})
 		.catch((err) => {
@@ -96,8 +101,13 @@ handleChange = (event) => {
 
 render() {
 	const style = {color:"white"};
-	let result = this.state.data.map((each,index) => <li key={index} style={style}> {each.name}</li>
+	let result;
+	if (this.state.loading) { result = <Spinner/>}
+	else {
+ result = this.state.data.map((each,index) => <li key={index} style={style}> {each.name}</li>
 		);
+	}
+	
 			
     return (
 		<Router>
@@ -110,6 +120,7 @@ render() {
 
 				<p>May the force be with you . . .</p>
 				{/* <Content content = {result} option = {this.state.current}/> */}
+
 		 			<ul> {result} </ul> 
 				 
 			</div>    
