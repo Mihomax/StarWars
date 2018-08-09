@@ -1,51 +1,47 @@
+@font-face {
+    font-family: myFont;
+    src: url("../SW_font.otf");
+}
+
 body {
-    margin:0;
-    padding:0;
-    background-color: #DEE8F2;
-    font-family: arial;
-}
-.wrapper {
-    display:grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr  ;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-}
-.bodyChildren {
-    min-height:200px;
-    text-align:center;
-    border: 1px solid red;
-}
-.logoDiv {
-    font-size:130%;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/back.jpg");
+    font-family: myFont;
 }
 
-.popDiv {
-    background-color:white;
-    min-height:200px;
-    text-align:center;
-    min-width:320px;
-    border-radius:7px;
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc;  
-    -moz-box-shadow:    3px 3px 5px 6px #ccc; 
-    box-shadow:          3px 5px 6px #ccc;
-
-    display:grid;
-    
-    grid-template-rows: 2fr 8fr 3fr  ;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-
-}
-
-.test {
-    border:1px solid green;
-}
 
 .w3-btn {
-   margin-top:30px;
-    background-color: #DEE8F2;
-    border: 1px solid #bdbdbd;
-    border-radius:2px;
+   margin:15px;
+   color:yellow;
+   border: 1px solid yellow;
+    border-radius:4px;
+   }
+   .w3-btn:hover {
+    background-color:yellow;
+    border: 2px solid black;
+    color:black;
+    
+   }
+
+p {
+    color:yellow;
+    font-family: myFont;
+    font-size:320%;
+    margin-left:20px;
+    margin-top:10px;
+}
+
+ul li {
+    font-size:140%;
+    list-style-type: none;
 
 }
+input {
+    font-size:140%;
+    margin-left:16px;
+    border-radius: 4px;
+    border:none;
+    
+}
+
