@@ -17,7 +17,7 @@ body {
    border: 1px solid yellow;
     border-radius:4px;
    }
-   .w3-btn:hover {
+.w3-btn:hover {
     background-color:yellow;
     border: 2px solid black;
     color:black;
@@ -44,4 +44,18 @@ input {
     border:none;
     
 }
+
+@media only screen and (max-width: 400px) {
+    
+  
+    .w3-btn {
+        margin:5px;
+        }
+        p {
+            font-size:200%;
+        }
+        input {
+            margin-left:6px;       
+        }
+   }
 
