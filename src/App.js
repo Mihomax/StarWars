@@ -6,9 +6,6 @@ import Spinner from './components/Spinner/Spinner';
 import Audio from './components/Audio/Audio';
 
 
-//import Content from './components/Content/Content';
-
-
 class App extends Component {
 	constructor(props) {
     super(props);
@@ -31,7 +28,7 @@ this.dataChanger = this.dataChanger.bind(this);
 this.searchQuery = this.searchQuery.bind(this);
 	};
 
-	componentWillMount = () => {
+componentWillMount = () => {
 		
 		axios.post(this.state.server, this.state.people, {
 			headers : {
@@ -77,6 +74,7 @@ this.searchQuery = this.searchQuery.bind(this);
 	dataChanger = (command) => {
 		this.setState({data:command});
 	}
+
 	searchQuery = (command) => {
 		this.setState({loading:true});
 		axios.post(this.state.server, command, {
@@ -120,7 +118,7 @@ render() {
 				<Link  className="w3-btn" onClick={(e) => this.searchQuery("/?search="+this.state.search)} to="/search">Search for persons</Link>
 
 				<p>May the force be with you . . .</p>
-				{/* <Content content = {result} option = {this.state.current}/> */}
+				
 				<ul> {result} </ul> 
 				 
 			</div>    
