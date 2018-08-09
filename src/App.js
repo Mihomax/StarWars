@@ -3,6 +3,8 @@ import  "./css/mycss.css";
 import axios from 'axios';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 import Spinner from './components/Spinner/Spinner';
+import Audio from './components/Audio/Audio';
+
 
 //import Content from './components/Content/Content';
 
@@ -22,7 +24,6 @@ this.state = {
 	planets:'planets',
 	starships:'starships',
 	search:'',
-	current:'people',
 	loading: false
 }
 this.handleChange = this.handleChange.bind(this);
@@ -104,14 +105,14 @@ render() {
 	let result;
 	if (this.state.loading) { result = <Spinner/>}
 	else {
- result = this.state.data.map((each,index) => <li key={index} style={style}> {each.name}</li>
+ 	result = this.state.data.map((each,index) => <li key={index} style={style}> {each.name}</li>
 		);
 	}
-	
-			
+		
     return (
 		<Router>
             <div>
+				<Audio />
 				<Link  className="w3-btn" onClick={(e) => this.dataChanger(this.state.dataPeople)} to="/people">Click to see SW guys</Link>
 				<Link  className="w3-btn" onClick={(e) => this.dataChanger(this.state.dataPlanets)} to="/planets">Click to see all planets</Link>
 				<Link  className="w3-btn" onClick={(e) => this.dataChanger(this.state.dataStarships)} to="/starships">Click to see starships</Link><br/>
@@ -120,8 +121,7 @@ render() {
 
 				<p>May the force be with you . . .</p>
 				{/* <Content content = {result} option = {this.state.current}/> */}
-
-		 			<ul> {result} </ul> 
+				<ul> {result} </ul> 
 				 
 			</div>    
 		</Router>

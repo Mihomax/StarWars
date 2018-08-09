@@ -85,3 +85,10 @@ input {
     }
   }
   
+  audio {
+      float:right;
+      margin-top:5px;
+      margin-right:35%;
+      width:150px;
+     
+  }
